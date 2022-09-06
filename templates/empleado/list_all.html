@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>listado de todos los empleado</title>
+</head>
+<body>
+    <h1>
+        Acá estan listados todos los empleados
+    </h1>
+    <div>
+        {{object_list}}
+    </div>
+
+    <ul>
+        
+        {% for empleado in  object_list %}
+            <li>
+                {{empleado}}
+            </li>
+        {% endfor %}
+            
+    </ul>
+
+</body>
+</html>
