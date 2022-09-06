@@ -25,9 +25,10 @@
         {% for name in object_list %}
             
         <h1>
-            {{name}}
+            {{name.first_name}} {{name.last_name}}
         </h1>
-                
+            {{name.historia}}
+        
             
         {% endfor %}
             
