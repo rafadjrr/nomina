@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>buscar empleados</title>
+</head>
+<body>
+    <div>
+        <h1>
+            buscar empleados
+        </h1>
+        <form method="get"> {% csrf_token %}
+            <input type="text" id="kword" name="kword" placeholder="ingrese nombre aquí">
+            <button type="submit">buscar</button>
+        </form>
+    </div>
+<div>
+    <h3>
+        resultado de la busqueda
+    </h3>    
+    <ul>
+        
+        {% for name in object_list %}
+            
+        <h1>
+            {{name}}
+        </h1>
+                
+            
+        {% endfor %}
+            
+    </ul>
+</div>
+
+</body>
+</html>
