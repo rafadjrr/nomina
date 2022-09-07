@@ -35,4 +35,4 @@ class Empleado(models.Model):
         unique_together = ('first_name','last_name','jobs')
     def __str__(self):
         """Unicode representation of Empleado."""
-        return self.first_name + " " + self.last_name + " | " + str(self.departamento)
+        return self.first_name + " " + self.last_name 

@@ -1,5 +1,6 @@
+
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 
 # Create your views here.
 from .models import Empleado
@@ -41,5 +42,25 @@ class EmpleadosByKwordListView(ListView):
         print('=====================')
         palabra_clave = self.request.GET.get("kword",'')
         lista = Empleado.objects.filter(first_name=palabra_clave)
-        print(lista)
         return lista
+
+
+class HabilidadesEmpleadosListView(ListView):
+    model = Empleado
+    template_name = "empleado/habilidades.html"
+    context_object_name = "habilidades"
+    def get_queryset(self):
+        pclave = self.kwargs['id']
+        empleado = Empleado.objects.get(id=pclave)
+        return empleado.habilidades.all()
+
+
+class EmpleadoDetailView(DetailView):
+    model = Empleado
+    template_name = "empleado/detail_empleado.html"
+    
+    def get_context_data(self, **kwargs):
+        context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
+        context['titulo']='Empleado del mes'
+        return context
+    

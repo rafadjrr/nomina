@@ -10,7 +10,7 @@ class Admin(admin.ModelAdmin):
         #print(obj.first_name)
         return obj.first_name +' '+ obj.last_name
 
-    list_display = ('first_name','last_name','jobs','full_name','historia','departamento')
+    list_display = ('id','first_name','last_name','jobs','full_name','historia','departamento')
     list_filter = ('jobs','habilidades','departamento')
     filter_horizontal = ('habilidades',)
     #raw_id_fields = ('',)
