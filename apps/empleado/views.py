@@ -1,7 +1,7 @@
 
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
-
+from django.views.generic import ListView, DetailView,CreateView,TemplateView
+from django.urls import reverse_lazy
 # Create your views here.
 from .models import Empleado
 
@@ -54,7 +54,6 @@ class HabilidadesEmpleadosListView(ListView):
         empleado = Empleado.objects.get(id=pclave)
         return empleado.habilidades.all()
 
-
 class EmpleadoDetailView(DetailView):
     model = Empleado
     template_name = "empleado/detail_empleado.html"
@@ -63,4 +62,14 @@ class EmpleadoDetailView(DetailView):
         context = super(EmpleadoDetailView, self).get_context_data(**kwargs)
         context['titulo']='Empleado del mes'
         return context
-    
+
+
+class SuccessTemplateView(TemplateView):
+    template_name = "empleado/success.html"
+
+
+class EmpleadoCreateView(CreateView):
+    model = Empleado
+    template_name = "empleado/create.html"
+    fields = ("__all__")
+    success_url = reverse_lazy("empleado_app:success")
