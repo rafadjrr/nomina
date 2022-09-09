@@ -1,6 +1,6 @@
 
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView,CreateView,TemplateView
+from django.views.generic import ListView, DetailView,CreateView,TemplateView,UpdateView,DeleteView
 from django.urls import reverse_lazy
 # Create your views here.
 from .models import Empleado
@@ -71,5 +71,42 @@ class SuccessTemplateView(TemplateView):
 class EmpleadoCreateView(CreateView):
     model = Empleado
     template_name = "empleado/create.html"
-    fields = ("__all__")
+    #fields = ("__all__")
+    fields = [
+        'first_name',
+        'last_name',
+        'jobs',
+        'departamento',
+        'habilidades',
+        'historia',
+    ]
+    success_url = reverse_lazy("empleado_app:success")
+    def form_valid(self, form):
+        empleado = form.save(commit=False)
+        empleado.full_name = empleado.first_name + ' ' + empleado.last_name
+        empleado.save()
+        return super(EmpleadoCreateView,self).form_valid(form)
+
+
+class EmpleadoUpdateView(UpdateView):
+    model = Empleado
+    template_name = "empleado/empleado_update.html"
+    fields = [
+        'first_name',
+        'last_name',
+        'jobs',
+        'departamento',
+        'habilidades',
+        'historia',
+    ]
+    success_url = reverse_lazy("empleado_app:success")
+    def form_valid(self, form):
+        return super().form_valid(form)
+    def post(self, request, *args, **kwargs):
+        return super(EmpleadoUpdateView,self).post(request, *args, **kwargs)
+
+
+class EmpleadoDeleteView(DeleteView):
+    model = Empleado
+    template_name = "empleado/delete.html"
     success_url = reverse_lazy("empleado_app:success")

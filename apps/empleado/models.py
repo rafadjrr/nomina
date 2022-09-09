@@ -22,6 +22,7 @@ class Empleado(models.Model):
     )
     first_name = models.CharField('nombres', max_length=60)
     last_name = models.CharField('apellidos', max_length=60)
+    full_name = models.CharField('nombre completo', max_length=120, blank=True)
     jobs = models.CharField('trabajo', max_length=1,choices=JOB_CHOICES)
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to='empleado', height_field=None, width_field=None, max_length=None,null=True,blank=True)
