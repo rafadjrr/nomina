@@ -19,6 +19,9 @@ class Empleado(models.Model):
         ('0','ingeniero informatico'),
         ('1','ingeniero sistemas'),
         ('2','electronico'),
+        ('3','administrador'),
+        ('4','contador'),
+        ('5','asistente'),
     )
     first_name = models.CharField('nombres', max_length=60)
     last_name = models.CharField('apellidos', max_length=60)
