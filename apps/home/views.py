@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, CreateView
 from .models import *
-
+from .forms import *
 class IndexView(TemplateView):
     template_name = 'home/home.html'
 
@@ -21,5 +21,5 @@ class ModelPruebaListView(ListView):
 class PruebaCreateView(CreateView):
     model = Prueba
     template_name = "home/add.html"
-    fields = ("__all__")
+    form_class = PruebaForm
     success_url = "/"
