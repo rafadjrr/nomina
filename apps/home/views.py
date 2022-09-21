@@ -5,6 +5,9 @@ from .forms import *
 class IndexView(TemplateView):
     template_name = 'home/home.html'
 
+class FoundationView(TemplateView):
+    template_name = 'home/foundation.html'
+
 class PruebaListView(ListView):
     template_name = 'home/lista.html'
     queryset = ['A','B','C']
@@ -23,3 +26,4 @@ class PruebaCreateView(CreateView):
     template_name = "home/add.html"
     form_class = PruebaForm
     success_url = "/"
+
