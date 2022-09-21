@@ -110,3 +110,8 @@ class EmpleadoDeleteView(DeleteView):
     model = Empleado
     template_name = "empleado/delete.html"
     success_url = reverse_lazy("empleado_app:success")
+
+
+class InicioView(TemplateView):
+    template_name = "inicio.html"
+    
