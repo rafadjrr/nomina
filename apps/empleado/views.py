@@ -9,7 +9,7 @@ from .models import Empleado
 class EmpleadoListView(ListView):
     model = Empleado
     template_name = "empleado/list_all.html"
-    paginate_by: int = 3
+    paginate_by = 3
     ordering = '-first_name'
     
 
