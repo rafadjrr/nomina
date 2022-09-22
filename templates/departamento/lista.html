@@ -40,9 +40,7 @@ lista de departamentos
                         <td>{{dpto.nick}}</td>
                         <td>{{dpto.estatus}}</td>
                         <td>
-                            <a class="hollow button success"
-                                href="{% url 'dpto_app:listdpto' %}">ver</a>
-                            <button class="hollow button alert" href="#">delete</button>
+                            <a class="hollow button success" href="{% url 'empleado_app:empleados_area' dpto.name %}">ver Empleados</a>
                         </td>
                     </tr>
                     {% endfor %}
