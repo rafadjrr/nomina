@@ -28,7 +28,7 @@ listado de empleados
                         <th width="200">ID</th>
                         <th>Nombres</th>
                         <th width="150">Departamento</th>
-                        <th width="150">Accion</th>
+                        <th width="200">Accion</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,7 +38,8 @@ listado de empleados
                         <td>{{empleado.first_name}}</td>
                         <td>{{empleado.departamento}}</td>
                         <td>
-                            <a class="hollow button success" href="{% url 'empleado_app:empleado_detail' empleado.id %}">ver</a>
+                            <a class="hollow button success " href="{% url 'empleado_app:update' empleado.id %}">editar</a>
+                            <a class="hollow button alert" href="{% url 'empleado_app:delete' empleado.id %}">eliminar</a>
                         </td>
                     </tr>
                     {% endfor %}

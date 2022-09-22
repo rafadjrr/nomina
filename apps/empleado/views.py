@@ -16,11 +16,19 @@ class EmpleadoListView(ListView):
         lista = Empleado.objects.filter(first_name__icontains=palabra_clave).order_by('-id')
         return lista
 
+class EmpleadoAdministracionListView(ListView):
+    model = Empleado
+    template_name = "empleado/admin_empleados.html"
+    context_object_name = "empleados"
+    paginate_by = 5
+    ordering = '-id'
+
+
 class AreaEmpleadoListView(ListView):
     #model = Empleado
     template_name = 'empleado/area_emple.html'
-    
-
+    context_object_name = 'areaxemple'
+    paginate_by = 5
     def get_queryset(self):
         depto = self.kwargs['departamento']        
         lista = Empleado.objects.filter(departamento__name=depto)
