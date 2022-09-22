@@ -13,14 +13,14 @@ listado de empleados
 <div class="grid-container">
     <div class="grid-x">
         <h1 class="cell"> Lista de empleados</h1>
-        <div class="cell grid-x grid-margin-x">
+        <form class="cell grid-x grid-margin-x" method="get">{% csrf_token %}
             <div class="cell large-7">
-                <input type="text" placeholder="buscar empleado">
+                <input type="text" placeholder="buscar empleado" id="kword" name="kword">
             </div>
             <div class="cell large-1">
-                <a class="button primary" href="#">Buscar</a>
+                <button class="submit success button" type="submit">buscar</button>
             </div>
-        </div>
+        </form>
         <div class="cell">
             <table>
                 <thead>
@@ -36,7 +36,7 @@ listado de empleados
                     <tr>
                         <td>{{empleado.id}}</td>
                         <td>{{empleado.first_name}}</td>
-                        <td>{{empleado.last_name}}</td>
+                        <td>{{empleado.departamento}}</td>
                         <td>
                             <button class="hollow button success" href="#">edit</button>
                             <button class="hollow button alert" href="#">delete</button>
