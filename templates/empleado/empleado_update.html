@@ -1,21 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Empleado</title>
-</head>
-<body>
-    <h1>modificar empleado</h1>
-    <div>
-    <form method="post">{% csrf_token %}
-        {{form.as_p}}
-        <button type="submit" [disabled]="!form.form.valid">
-            Save
-        </button>
-    </form>
-    
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+Modificar empleado
+{% endblock titulo %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<h3>modificar empleado</h3>
+<div class="grid-container">
+    <div class="grid-x grid-padding-x">
+
+        <form class="cell" method="post">{% csrf_token %}
+            {{form.as_p}}
+            <button class="submit success button" type="submit" [disabled]="!form.form.valid">
+                Save
+            </button>
+        </form>
+
     </div>
-</body>
-</html>
+
+</div>
+{% endblock content %}

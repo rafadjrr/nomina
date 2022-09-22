@@ -11,15 +11,8 @@ area por empleados
 {% include 'includes/header.html' %}
 <div class="grid-container">
     <div class="grid-x">
-        <h1 class="cell"> Lista de empleados del departamento</h1>
-        <form class="cell grid-x grid-margin-x" method="get">{% csrf_token %}
-            <div class="cell large-7">
-                <input type="text" placeholder="buscar empleado" id="kword" name="kword">
-            </div>
-            <div class="cell large-1">
-                <button class="submit success button" type="submit">buscar</button>
-            </div>
-        </form>
+        <h1 class="cell"> Empleados para el departamento</h1>
+
         <div class="cell">
             <table>
                 <thead>
@@ -35,7 +28,8 @@ area por empleados
                         <td>{{ae.first_name}}</td>
                         <td>{{ae.last_name}}</td>
                         <td>
-                            <a class="hollow button success" href="{% url 'empleado_app:empleado_detail' ae.id %}">ver</a>
+                            <a class="hollow button success"
+                                href="{% url 'empleado_app:empleado_detail' ae.id %}">ver</a>
                         </td>
                     </tr>
                     {% endfor %}
