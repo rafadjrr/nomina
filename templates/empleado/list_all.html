@@ -1,28 +1,57 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>listado de todos los empleado</title>
-</head>
-<body>
-    <h1>
-        Acá estan listados todos los empleados
-    </h1>
-    <div>
-        {{object_list}}
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block titulo %}
+listado de empleados
+{% endblock titulo %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell"> Lista de empleados</h1>
+        <div class="cell grid-x grid-margin-x">
+            <div class="cell large-7">
+                <input type="text" placeholder="buscar empleado">
+            </div>
+            <div class="cell large-1">
+                <a class="button primary" href="#">Buscar</a>
+            </div>
+        </div>
+        <div class="cell">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="200">ID</th>
+                        <th>Nombres</th>
+                        <th width="150">Departamento</th>
+                        <th width="150">Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for empleado in object_list %}
+                    <tr>
+                        <td>{{empleado.id}}</td>
+                        <td>{{empleado.first_name}}</td>
+                        <td>{{empleado.last_name}}</td>
+                        <td>
+                            <button class="hollow button success" href="#">edit</button>
+                            <button class="hollow button alert" href="#">delete</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
     </div>
 
-    <ul>
-        
-        {% for empleado in  object_list %}
-            <li>
-                {{empleado}}
-            </li>
-        {% endfor %}
-            
-    </ul>
 
-</body>
-</html>
+
+</div>
+
+
+
+{% endblock content %}
