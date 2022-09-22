@@ -9,7 +9,7 @@ from .models import Empleado
 class EmpleadoListView(ListView):
 #    model = Empleado
     template_name = "empleado/list_all.html"
-    paginate_by = 3
+    paginate_by = 5
     def get_queryset(self):
         palabra_clave = self.request.GET.get("kword",'')
         lista = Empleado.objects.filter(first_name__icontains=palabra_clave).order_by('-id')

@@ -1,25 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>detail empleado</title>
-</head>
-<body>
-    <div>
-        <h1>{{titulo}}</h1>
-        {{empleado}}
+{% extends 'base.html' %}
+{% load static %}
+
+
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+<div class="grid-container">
+    <div class="grid-margin-x">
+        <div class="card" style="width: 300px; ">
+            <div class="card-divider" style="background: rgb(20, 180, 220);">
+                <p>{{empleado.first_name}} {{empleado.last_name}}</p>
+            </div>
+            <img src="{{empelado.avatar}}">
+            <div class="card-section">
+                <h4> {{empleado.departamento}}</h4>
+                <p>
+                    {{empleado.historia}}
+                </p>
+            </div>
+        </div>
     </div>
-    <div>
-        {{empleado.jobs}}
-        {{empleado.habilidades.name}}
-        {{empleado.departamento}}
-        
-    </div>
-    <p>
-        {{empleado.last_name}}
-        {{empleado.first_name}}
-    </p>
-</body>
-</html>
+</div>
+
+{% endblock content %}
