@@ -9,6 +9,7 @@ from .models import Empleado
 class EmpleadoListView(ListView):
 #    model = Empleado
     template_name = "empleado/list_all.html"
+    context_object_name = "empleados"
     paginate_by = 5
     def get_queryset(self):
         palabra_clave = self.request.GET.get("kword",'')

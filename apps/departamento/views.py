@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import ListView
 from django.views.generic.edit import FormView
 from apps.empleado.models import Empleado
 from apps.departamento.models import *
@@ -28,3 +29,13 @@ class NewDepartamentoView(FormView):
 
         )
         return super(NewDepartamentoView,self).form_valid(form)
+
+
+class DepartamentoListView(ListView):
+    model = Departamento
+    template_name = "departamento/lista.html"
+    context_object_name = "departamentos"
+    def get_queryset(self):
+        kword = self.request.GET.get('kword','')
+        lista = Departamento.objects.filter(nick__icontains=kword)
+        return lista

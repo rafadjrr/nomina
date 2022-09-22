@@ -32,7 +32,7 @@ listado de empleados
                     </tr>
                 </thead>
                 <tbody>
-                    {% for empleado in object_list %}
+                    {% for empleado in empleados %}
                     <tr>
                         <td>{{empleado.id}}</td>
                         <td>{{empleado.first_name}}</td>
@@ -59,14 +59,14 @@ listado de empleados
 
 
                     {% for page in paginator.page_range %}
-                    
-                    {% if page == page_obj.number  %}
-                        
+
+                    {% if page == page_obj.number %}
+
                     <li class="current"><span class="show-for-sr">You're on page</span> {{page}}</li>
                     {% else %}
-                    <li><a href="?page={{page}}" aria-label="Page">{{page}}</a></li> 
+                    <li><a href="?page={{page}}" aria-label="Page">{{page}}</a></li>
                     {% endif %}
-                        
+
                     {% endfor %}
 
                     {% if page_obj.has_next %}

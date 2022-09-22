@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block titulo %}
+lista de departamentos
+{% endblock titulo %}
+
+
+{% block content %}
+{% include 'includes/header.html' %}
+<div class="grid-container">
+    <div class="grid-x">
+        <h1 class="cell">
+            lista de departamentos
+        </h1>
+
+        <form class="cell grid-x grid-margin-x" method="get">{% csrf_token %}
+            <div class="cell large-7">
+                <input type="text" placeholder="buscar departamentos" id="kword" name="kword">
+            </div>
+            <div class="cell large-1">
+                <button class="submit success button" type="submit">buscar</button>
+            </div>
+        </form>
+
+        <div class="cell">
+            <table>
+                <thead>
+                    <tr>
+                        <th width="200">Nombre</th>
+                        <th width="150">Corto</th>
+                        <th width="100">Estatus</th>
+                        <th width="100">Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dpto in departamentos %}
+                    <tr>
+                        <td>{{dpto.name}}</td>
+                        <td>{{dpto.nick}}</td>
+                        <td>{{dpto.estatus}}</td>
+                        <td>
+                            <a class="hollow button success"
+                                href="{% url 'dpto_app:listdpto' %}">ver</a>
+                            <button class="hollow button alert" href="#">delete</button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}
