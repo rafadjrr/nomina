@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     #app de terceros
-    'ckeditor',
+    #'ckeditor',
     #local app
     'apps.departamento',
     'apps.empleado',
@@ -76,16 +76,22 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'nomina.wsgi.application'
 
+#DATABASES = {
+    #'default': {
+    #    'ENGINE': 'django.db.backends.postgresql_psycopg2',
+    #    'NAME': 'nominadb',
+    #    'USER': 'rafadjrr',
+    #    'PASSWORD': 'rafadjrr',
+    #    'HOST': 'localhost',
+    #    'PORT': '5432',
+    #}
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'nominadb',
-        'USER': 'rafadjrr',
-        'PASSWORD': 'rafadjrr',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR.child('db.sqlite3'),
+        }
 }
+#}
 
 
 # Password validation
