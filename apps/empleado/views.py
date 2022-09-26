@@ -88,10 +88,11 @@ class EmpleadoCreateView(CreateView):
         'last_name',
         'jobs',
         'departamento',
+        'avatar',
         'habilidades',
         'historia',
     ]
-    success_url = reverse_lazy("empleado_app:success")
+    success_url = reverse_lazy("empleado_app:inicio")
     def form_valid(self, form):
         empleado = form.save(commit=False)
         empleado.full_name = empleado.first_name + ' ' + empleado.last_name
@@ -110,7 +111,7 @@ class EmpleadoUpdateView(UpdateView):
         'habilidades',
         'historia',
     ]
-    success_url = reverse_lazy("empleado_app:success")
+    success_url = reverse_lazy("empleado_app:admin")
     def form_valid(self, form):
         return super().form_valid(form)
     def post(self, request, *args, **kwargs):
@@ -120,7 +121,7 @@ class EmpleadoUpdateView(UpdateView):
 class EmpleadoDeleteView(DeleteView):
     model = Empleado
     template_name = "empleado/delete.html"
-    success_url = reverse_lazy("empleado_app:success")
+    success_url = reverse_lazy("empleado_app:admin")
 
 
 class InicioView(TemplateView):

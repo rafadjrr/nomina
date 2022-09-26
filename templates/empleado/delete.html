@@ -10,15 +10,15 @@ borrar empleado
 {% block content %}
 {% include 'includes/header.html' %}
 <div class="grid-container">
-    <h3 class="cell">Eliminar empleado</h3>
 
-    <div class="grid-x grid-padding-x">
-
+    <div class="grid-x grid-margin-x">
+        <h3 class="cell">Eliminar empleado</h3>
         <form class="cell" method="post">{% csrf_token %}
-            <h5 class="callout">confirme que desea eliminar el empleado</h5>
-            <button class="submit success button" type="submit">
-                Confirmar
-            </button>
+            <div class="callout">
+                <h5 >¿esta seguro de eliminar el empleado?</h5>
+                <button class="submit alert button" type="submit">Confirmar
+                </button>
+            </div>
         </form>
 
     </div>

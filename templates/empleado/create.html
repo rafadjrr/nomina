@@ -1,24 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create empleado</title>
-</head>
 
-<body>
-    <header>
-        <h1>registro de empleados</h1>
-    </header>
-    <form action="" method="post"> {% csrf_token %}
-        {{form.as_p}}
-        <button type="submit">Agregar empleado</button>
-    </form>
-    <footer>
-        copyright
-    </footer>
-</body>
+{% block titulo %}
+registro
+{% endblock titulo %}
 
-</html>
+
+{% block content %}
+{% include 'includes/header.html' %}
+
+<div class="grid-container">
+    <div class="grid-x ">
+        <h3 class="cell">Registro</h3>
+        <form class="grid-x grid-margin-x " method="post">{% csrf_token %}
+            <div class="cell medium-6">
+                <label>first_name:
+                    {{form.first_name}}
+                </label>
+            </div>
+            <div class="cell medium-6">
+                <label>last_name:
+                    {{form.last_name}}
+                </label>
+            </div>
+            <div class="cell medium-3">
+                <label>jobs:
+                    {{form.jobs}}
+                </label>
+            </div>
+            <div class="cell medium-3">
+                <label>departamento:
+                    {{form.departamento}}
+                </label>
+            </div>
+            <div class="cell medium-3">
+                <label>avatar:
+                    {{form.avatar}}
+                </label>
+            </div>
+            <div class="cell large-3">
+                <label>skills:
+                    {{form.habilidades}}
+                </label>
+            </div>
+            <div class="cell large-12">
+                <label>
+                    <h6>
+                        historia:
+                    </h6>
+                    {{form.historia}}
+                </label>
+            </div>
+            <div class="cell">
+                <button class="submit success button" type="submit" [disabled]="!form.form.valid">
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+    {% endblock content %}

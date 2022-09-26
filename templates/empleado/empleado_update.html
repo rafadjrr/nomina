@@ -10,18 +10,64 @@ Modificar empleado
 {% block content %}
 {% include 'includes/header.html' %}
 
-<h3>modificar empleado</h3>
+
 <div class="grid-container">
-    <div class="grid-x grid-padding-x">
+    <div class="grid-x ">
+        <h3 class="cell">modificar empleado</h3>
+        <div class="cell">
+            <form class="grid-x grid-margin-x " method="post">{% csrf_token %}
+                <div class="cell medium-6">
+                    <label>first_name:
+                        {{form.first_name}}
+                    </label>
+                </div>
+                <div class="cell medium-6">
+                    <label>last_name:
+                        {{form.last_name}}
+                    </label>
+                </div>
+                <div class="cell medium-6">
+                    <label>jobs:
+                        {{form.jobs}}
+                    </label>
+                </div>
+                <div class="cell medium-6">
+                    <label>departamento:
+                        {{form.departamento}}
+                    </label>
+                </div>
+                <div class="cell medium-6">
+                    <label>avatar:
+                        {{form.avatar}}
+                    </label>
+                </div>
+                <div class="cell medium-6">
+                    <label>skills:
+                        {{form.habilidades}}
+                    </label>
+                </div>
+                <div class="cell large-6">
+                    <label>
+                        <h6>
+                            historia:
+                        </h6>
+                        {{form.historia}}
+                    </label>
+                </div>
+                <div class="cell">
+                    <button class="submit success button" type="submit" [disabled]="!form.form.valid">
+                        Guardar
+                    </button>
+                </div>
 
-        <form class="cell" method="post">{% csrf_token %}
-            {{form.as_p}}
-            <button class="submit success button" type="submit" [disabled]="!form.form.valid">
-                Save
-            </button>
-        </form>
-
+        </div>
     </div>
+
+    </form>
+
+</div>
+
+</div>
 
 </div>
 {% endblock content %}
