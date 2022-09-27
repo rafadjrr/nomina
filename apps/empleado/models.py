@@ -1,8 +1,6 @@
-from apps.departamento.models import Departamento
 from django.db import models
-
-
-
+from apps.departamento.models import *
+from ckeditor.fields import RichTextField
 # Create your models here.
 class Habilidad(models.Model):
     """Model definition for Habilidades."""
@@ -14,7 +12,7 @@ class Habilidad(models.Model):
         verbose_name_plural = 'Habilidades'
     def __str__(self):
         """Unicode representation of Habilidades."""
-        return self.name
+        return self.name + str(self.id)
 class Empleado(models.Model):
     """Model definition for Empleado."""
     JOB_CHOICES =(
@@ -32,7 +30,7 @@ class Empleado(models.Model):
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
     avatar = models.ImageField(upload_to='empleado', height_field=None, width_field=None, max_length=None,null=True,blank=True)
     habilidades = models.ManyToManyField(Habilidad)
-    historia = models.CharField('his', max_length=250)
+    historia = RichTextField()
     class Meta:
         """Meta definition for Empleado."""
         verbose_name = 'Empleado'
