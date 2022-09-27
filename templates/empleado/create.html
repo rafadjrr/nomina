@@ -13,7 +13,7 @@ registro
 <div class="grid-container">
     <div class="grid-x ">
         <h3 class="cell">Registro</h3>
-        <form class="grid-x grid-margin-x " method="post">{% csrf_token %}
+        <form class="grid-x grid-margin-x " method="post" enctype="multipart/form-data">{% csrf_token %}
             <div class="cell medium-6">
                 <label>first_name:
                     {{form.first_name}}

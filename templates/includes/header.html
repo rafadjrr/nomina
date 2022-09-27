@@ -2,18 +2,20 @@
     <div class="top-bar">
         <div class="top-bar-left">
             <ul class="dropdown menu" data-dropdown-menu>
-                <li class="menu-text">Empleados</li>
-                <li>
-                    <a href="{% url 'empleado_app:empleados_all' %}">Listar</a>
+                <li >
+                    <a href="{% url 'empleado_app:inicio' %}">home</a>
                 </li>
-                <li><a href="{% url 'dpto_app:listdpto' %}">Departamentos</a></li>
-                <li><a href="{% url  'empleado_app:admin' %}">Administrar</a></li>
+                <li>
+                    <a href="{% url 'empleado_app:empleados_all' %}">List of employes</a>
+                </li>
+                <li><a href="{% url 'dpto_app:listdpto' %}">Departament</a></li>
+                <li><a href="{% url  'empleado_app:admin' %}">Admin</a></li>
             </ul>
         </div>
         <div class="top-bar-right">
             <ul class="menu">
                 <li><input type="search" placeholder="Buscar empleado"></li>
-                <li><a type="button" href="{% url  'empleado_app:add' %}" class="button">Registrar nuevo</a></li>
+                <li><a type="button" href="{% url  'empleado_app:add' %}" class="button">Register</a></li>
             </ul>
         </div>
     </div>

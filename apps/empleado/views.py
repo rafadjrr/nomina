@@ -108,6 +108,7 @@ class EmpleadoUpdateView(UpdateView):
         'last_name',
         'jobs',
         'departamento',
+        'avatar',
         'habilidades',
         'historia',
     ]
