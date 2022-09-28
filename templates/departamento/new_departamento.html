@@ -1,35 +1,46 @@
+{% extends 'base.html' %}
 {% load static %}
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/foundation.min.css' %}">
-    <title>new</title>
+{% block titulo %}
+register departamento
+{% endblock titulo %}
 
-</head>
 
-<body>
-    <h1>new departamento</h1>
-    <form method="post">{% csrf_token %}
-        <div>
-            <h3>datos del empleado</h3>
-            <p>
-                {{form.nombre}}
-                {{form.apellido}}
-            </p>
-        </div>
-        <h3>datos del departamento</h3>
-        <p>
-            {{form.departamento}}
 
-            {{form.shortname}}
-        </p>
+{% block content %}
+{% include 'includes/header.html' %}
+<div class="grid-container">
+    <h3 class="cell">new departamento</h3>
+    <div class="grid-x grid-margin-x">
+        <form class="grid-x callout secondary grid-padding-x" method="post">{% csrf_token %}
+            <h5 class="cell">Lider de departamento</h5>
+            <div class="medium-6 cell">
+                <label> first_name: 
+                    {{form.nombre}}        
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <label>last_name:
+                    {{form.apellido}}        
+                </label>
+            </div>
+            <h5 class="cell">datos del departamento</h5>
+            <div class="medium-6 cell">
+                <label>departamento:
+                    {{form.departamento}}        
+                </label>
+            </div>
+            <div class="medium-6 cell">
+                <label>nick:
+                    {{form.shortname}}
+                </label>
+            </div>
+            <button type="submit" class="medium-12 cell success button">save</button>
 
-        <button type="submit" class="success button">save</button>
+        </form>
+    </div>
+</div>
 
-    </form>
-</body>
 
-</html>
+
+{% endblock content %}

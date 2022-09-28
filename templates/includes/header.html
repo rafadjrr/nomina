@@ -9,12 +9,13 @@
                     <a href="{% url 'empleado_app:empleados_all' %}">List of employes</a>
                 </li>
                 <li><a href="{% url 'dpto_app:listdpto' %}">Departament</a></li>
+                <li><a href="{% url 'dpto_app:newdpto' %}">New departament</a></li>
                 <li><a href="{% url  'empleado_app:admin' %}">Admin</a></li>
             </ul>
         </div>
         <div class="top-bar-right">
             <ul class="menu">
-                <li><input type="search" placeholder="Buscar empleado"></li>
+                <li><input type="search" placeholder="Search employe"></li>
                 <li><a type="button" href="{% url  'empleado_app:add' %}" class="button">Register</a></li>
             </ul>
         </div>
