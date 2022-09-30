@@ -1,14 +1,12 @@
 # nomina
+![image](https://user-images.githubusercontent.com/46068766/193319446-8cc00afb-55ee-45f1-a32c-152b1d8645c0.png)
+![image](https://user-images.githubusercontent.com/46068766/193319520-0adc57fd-e02c-4358-ab3f-d98aa125d4de.png)
+![image](https://user-images.githubusercontent.com/46068766/193319597-423dadfb-6ce1-4fc8-b212-70c7babdcc72.png)
+![image](https://user-images.githubusercontent.com/46068766/193319645-fe87f3ea-a247-4532-96f4-b195af4ab17c.png)
+![image](https://user-images.githubusercontent.com/46068766/193319695-ed0a292e-44ba-44ed-8531-f04b4c572928.png)
+![image](https://user-images.githubusercontent.com/46068766/193319765-2a39bb33-d273-4652-aebb-9720ead910a0.png)
 
-![image](https://user-images.githubusercontent.com/46068766/191601270-71e3a369-9b85-40ad-a8e6-b400651ef6b8.png)
-
-![image](https://user-images.githubusercontent.com/46068766/191841400-9f6eb073-f8c6-45cf-9ca4-214a9d278cc7.png)
-
-![image](https://user-images.githubusercontent.com/46068766/191841549-dd33b7ab-871a-46f5-a7ea-7ab9809121e6.png)
-
-![image](https://user-images.githubusercontent.com/46068766/191841620-391d03ab-da39-4a99-a7c7-fc7d83659606.png)
-
-proyecto dedicado a explorar todas las funciones con django
+# Proyecto dedicado a explorar todas las funciones con django
 
 1) clonar repositorio
 2) instalar dependencia con "pip install requeriments"
