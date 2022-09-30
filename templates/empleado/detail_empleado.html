@@ -1,24 +1,41 @@
 {% extends 'base.html' %}
 {% load static %}
-
-
-
-
 {% block content %}
 {% include 'includes/header.html' %}
 <div class="grid-container">
-    <div class="grid-margin-x">
+    <div class="grid-margin-x center">
         <div class="card" style="width: 300px; ">
-            <div class="card-divider" style="background: rgb(20, 180, 220);">
+            <div class="card-divider" style="background: rgba(20, 180, 220, 0.705);">
                 <p>{{empleado.first_name}} {{empleado.last_name}}</p>
             </div>
-            <img class="thumbnail" src="/media/{{empleado.avatar}}">
-            <div class="card-section">
-                <h4> {{empleado.departamento}}</h4>
+
+            {% if empleado.avatar %}
+            <img class="thumbnail" src="{{empleado.avatar.url}}">
+            {% else %}
+            <img class="thumbnail" src="{% static 'img/perfilvoid.jpg' %}">
+            {% endif %}
+
+            <div class="card-section callout primary">
+                <h4> {{empleado.departamento.nick}}</h4>
                 <p>
                     {{empleado.historia}}
                 </p>
             </div>
+            <div class="card-section callout secondary">
+                <p>
+                    <span class="label">
+                        habilidades:
+                    </span>
+                </p>
+                <ul class="vertical menu">
+                    {% for h in empleado.habilidades.all %}
+                    <li>
+                        {{h.name}}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
         </div>
     </div>
 </div>

@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView,CreateView,TemplateView,Up
 from django.urls import reverse_lazy
 # Create your views here.
 from .models import Empleado
-
+from .forms import *
 
 class EmpleadoListView(ListView):
 #    model = Empleado
@@ -83,15 +83,7 @@ class EmpleadoCreateView(CreateView):
     model = Empleado
     template_name = "empleado/create.html"
     #fields = ("__all__")
-    fields = [
-        'first_name',
-        'last_name',
-        'jobs',
-        'departamento',
-        'avatar',
-        'habilidades',
-        'historia',
-    ]
+    form_class = EmpleadoForm
     success_url = reverse_lazy("empleado_app:inicio")
     def form_valid(self, form):
         empleado = form.save(commit=False)
